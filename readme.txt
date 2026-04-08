@@ -1,0 +1,5 @@
+本作業使用AI輔助排版跟變數名的更改,以利完成之效率與程式碼的可讀性
+補充:於做作業時沒看到只需要Model B跑時產生test_set_prediction.json
+因此三份main.py皆有test_set_prediction.json之生成
+言下之意為三份程式碼可能都需要放入train.json跟test.json在同層
+造成不便深感歉意,繳交前發現時間不夠再做修改了
