@@ -73,9 +73,9 @@ Model B：在 Model A 基礎上加入 Data Augmentation 與 Dropout 提升泛化
 Each model generates:
 
 output/
-├── output_loss.png
-├── output_accuracy.png
-├── output_output.json
+- ├── output_loss.png
+- ├── output_accuracy.png
+- ├── output_output.json
 
 
 Model B additionally produces:
