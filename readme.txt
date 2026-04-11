@@ -1,3 +1,1 @@
-## Test Image
-
-![test](Baseline/output/output_loss.png)
+![Loss](./Baseline/output/output_loss.png)
