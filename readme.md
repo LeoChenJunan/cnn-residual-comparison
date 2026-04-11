@@ -1,15 +1,62 @@
 # CNN vs Residual CNN Experiment
 
-## Project Overview
+## Project Overview（專案簡介）
 
-This project compares CNN, Residual CNN, and Regularized CNN models.
+This project implements and compares three CNN-based models under the same experimental setting.
+
+本專案在相同訓練條件下，比較三種 CNN 模型的表現差異。
+
+The goal is to analyze the effect of Residual Blocks and regularization techniques on model performance.
+
+目的在於分析 Residual Block 與正則化技術對模型效能的影響。
 
 ---
 
-## Results
+## Project Navigation（專案導覽）
 
-![Baseline Accuracy](https://raw.githubusercontent.com/LeoChenJunan/cnn-residual-comparison/main/Baseline/output/output_accuracy.png)
+- [Baseline Model](Baseline/)
+- [Model A](Model%20A/)
+- [Model B](Model%20B/)
 
-![Model A Accuracy](https://raw.githubusercontent.com/LeoChenJunan/cnn-residual-comparison/main/Model%20A/output/output_accuracy.png)
+---
 
-![Model B Accuracy](https://raw.githubusercontent.com/LeoChenJunan/cnn-residual-comparison/main/Model%20B/output/output_accuracy.png)
+## Model Descriptions（模型說明）
+
+### Baseline Model
+Standard CNN without residual connections or regularization.
+
+---
+
+### Model A
+CNN with Residual Blocks to improve training stability and gradient flow.
+
+---
+
+### Model B
+Residual CNN with Data Augmentation and Dropout for better generalization.
+
+---
+
+## Results Visualization（結果視覺化）
+
+### Baseline
+![Baseline Loss](Baseline/output/output_loss.png)
+![Baseline Accuracy](Baseline/output/output_accuracy.png)
+
+---
+
+### Model A
+![Model A Loss](Model%20A/output/output_loss.png)
+![Model A Accuracy](Model%20A/output/output_accuracy.png)
+
+---
+
+### Model B
+![Model B Loss](Model%20B/output/output_loss.png)
+![Model B Accuracy](Model%20B/output/output_accuracy.png)
+
+---
+
+## Output Files（輸出檔案）
+
+Each model generates:
