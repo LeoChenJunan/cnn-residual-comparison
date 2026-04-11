@@ -1,1 +1,1 @@
-![Loss](./Baseline/output/output_loss.png)
+![accuracy](Baseline/output/output_accuracy.png)
