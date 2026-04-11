@@ -1,33 +1,48 @@
 # CNN vs Residual CNN Experiment
 
----
+## Project Overview
 
-## 一、模型架構設計說明
+This project compares three convolutional neural network (CNN) architectures under the same training setting to analyze the impact of Residual Blocks and regularization techniques on model performance and generalization ability.
 
-本實驗設計三種卷積神經網路（CNN）模型，目的在於系統性分析 Residual Block 以及正則化技術（Data Augmentation 與 Dropout）對模型訓練行為與效能的影響。
+The three models include:
+- Baseline CNN (no Residual Block, no regularization)
+- Residual CNN (Model A)
+- Residual CNN with Data Augmentation and Dropout (Model B)
 
-為確保實驗公平性，三個模型皆使用相同輸入大小 3 × 32 × 32，前段為卷積層，中段為不同 Block，後段皆使用 Global Average Pooling（GAP）。
-
----
-
-### Baseline
-Baseline：無 Residual Block，無 Data Augmentation 與 Dropout  
+All models are trained on images with input size 3 × 32 × 32 and evaluated under identical training conditions.
 
 ---
 
-### Model A
-Model A：加入 Residual Block，不使用正則化技術  
+## Model Architectures
+
+### Baseline Model
+The Baseline model is a standard CNN composed of stacked convolutional layers with ReLU activation. It does not include Batch Normalization, Residual Connections, or any form of regularization. This model serves as the control group for comparison.
 
 ---
 
-### Model B
-Model B：在 Model A 基礎上，加入 Data Augmentation 與 Dropout  
+### Model A (Residual CNN)
+Model A introduces Residual Blocks into the network architecture. Each Residual Block consists of two convolutional layers with Batch Normalization and an identity shortcut connection. This design improves gradient flow and stabilizes training in deeper networks.
 
 ---
 
-## 二、模型比較（Accuracy Visualization）
+### Model B (Residual CNN + Regularization)
+Model B is based on Model A but further incorporates regularization techniques. Data Augmentation (random flipping and cropping) is applied during training, and Dropout (p = 0.5) is added in the classifier to reduce overfitting and improve generalization performance.
 
-### Accuracy Comparison (Baseline vs Model A vs Model B)
+---
+
+## Training Configuration
+
+All models are trained using the same hyperparameters:
+
+- Learning Rate: 1e-3  
+- Batch Size: 64  
+- Epochs: 50  
+
+---
+
+## Experimental Results
+
+### Accuracy Comparison
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/LeoChenJunan/cnn-residual-comparison/main/Baseline/output/output_accuracy.png" width="32%">
@@ -37,7 +52,7 @@ Model B：在 Model A 基礎上，加入 Data Augmentation 與 Dropout
 
 ---
 
-## 三、Loss 比較
+### Loss Comparison
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/LeoChenJunan/cnn-residual-comparison/main/Baseline/output/output_loss.png" width="32%">
@@ -47,23 +62,19 @@ Model B：在 Model A 基礎上，加入 Data Augmentation 與 Dropout
 
 ---
 
-## 四、實驗結果分析
+## Results Analysis
 
-Baseline 收斂較慢且準確率最低。  
-Model A 因 Residual Block 提升梯度傳遞，使訓練更穩定。  
-Model B 加入 Data Augmentation 與 Dropout，泛化能力最佳。
+The Baseline model shows the weakest performance in both convergence speed and validation accuracy, indicating limitations in deep feature learning without modern architectural improvements.
 
----
+Model A demonstrates improved training stability and faster convergence due to the use of Residual Connections, which help alleviate gradient vanishing problems in deeper networks.
 
-## 五、實驗設計
-
-- Learning Rate：1e-3  
-- Batch Size：64  
-- Epoch：50  
+Model B achieves the best generalization performance. Although its training accuracy is slightly lower than Model A, it produces the most stable validation results, confirming the effectiveness of Data Augmentation and Dropout in reducing overfitting.
 
 ---
 
-## 六、專案結構
+## Project Structure
+
+The repository is organized as follows:
 
 - Baseline/
 - Model_A/
@@ -71,8 +82,20 @@ Model B 加入 Data Augmentation 與 Dropout，泛化能力最佳。
 - readme.txt
 - report.pdf
 
+Each model folder contains:
+- main.py (training script)
+- output/ (loss curve, accuracy curve, prediction results)
+
 ---
 
-## 七、Repository
+## Conclusion
 
-👉 https://github.com/LeoChenJunan/cnn-residual-comparison
+This experiment demonstrates that architectural improvements such as Residual Connections significantly enhance training stability and convergence behavior in CNNs. Furthermore, applying regularization techniques such as Data Augmentation and Dropout improves model generalization, making the model more robust in practical scenarios.
+
+Overall, Model B achieves the best balance between training performance and generalization ability.
+
+---
+
+## Repository
+
+https://github.com/LeoChenJunan/cnn-residual-comparison
