@@ -1,63 +1,94 @@
-## 模型設計
+# CNN vs Residual CNN Experiment
 
-### Baseline
+## Project Overview（專案簡介）
 
-使用 Softmax Regression 作為最基本模型
-將影像攤平成向量後進行分類
-不包含任何卷積結構或進階技巧
+This project implements and compares three CNN-based models under the same experimental setting.
+
+本專案在相同訓練條件下，比較三種 CNN 模型的表現差異。
+
+The goal is to analyze the effect of Residual Blocks and regularization techniques on model performance.
+
+目的在於分析 Residual Block 與正則化技術對模型效能的影響。
+
+---
+
+## Project Navigation（專案導覽）
+
+- [Baseline Model](Baseline/)
+- [Model A](Model%20A/)
+- [Model B](Model%20B/)
+
+---
+
+## Model Descriptions（模型說明）
+
+### Baseline Model
+Standard CNN without residual connections or regularization.
+
+---
 
 ### Model A
+CNN with Residual Blocks to improve training stability and gradient flow.
 
-使用卷積神經網路並加入 Residual Block
-透過 skip connection 改善梯度傳遞問題
-提升模型訓練穩定性與收斂速度
+---
 
 ### Model B
-
-在 Model A 基礎上加入正則化方法
-包含資料增強與 dropout
-用於提升模型泛化能力並減少過擬合
+Residual CNN with Data Augmentation and Dropout for better generalization.
 
 ---
 
-## 實驗設定
+## Results Visualization（結果視覺化）
 
-* Learning rate：1e-3
-* Batch size：64
-* Epoch：50
-* Train validation split：80 20
-
----
-
-## 實驗結果
-
-* Baseline 表現最差且收斂較慢
-* Model A 提升訓練穩定性與準確率
-* Model B 在驗證集表現最佳，泛化能力較佳
+### Baseline
+![Baseline Loss](Baseline/output/output_loss.png)
+![Baseline Accuracy](Baseline/output/output_accuracy.png)
 
 ---
 
-## 專案重點
-
-* 實作 CNN 與 Residual Block
-* 理解模型設計對訓練的影響
-* 比較不同正則化方法效果
-* 建立完整訓練與評估流程
+### Model A
+![Model A Loss](Model%20A/output/output_loss.png)
+![Model A Accuracy](Model%20A/output/output_accuracy.png)
 
 ---
 
-## 使用技術
-
-* Python
-* NumPy
-* PyTorch
-* Matplotlib
+### Model B
+![Model B Loss](Model%20B/output/output_loss.png)
+![Model B Accuracy](Model%20B/output/output_accuracy.png)
 
 ---
 
-資料集說明:
-本專案使用之資料集因檔案較大未上傳至GitHub 以避免超過平台限制 專案主要提供模型架構與訓練流程 如需完整資料下載方式可聯繫信箱 "leochenjunan@gmail.com"
+## Output Files（輸出檔案）
+
+Each model generates:
+
+output/
+├── output_loss.png
+├── output_accuracy.png
+├── output_output.json
+
+
+Model B additionally outputs:
+
+test_set_prediction.json
 
 
 ---
 
+## Documents（文件）
+
+- [Experiment Report](report.pdf)
+- [Legacy Readme](readme.txt)
+
+---
+
+## Conclusion（結論）
+
+- Baseline performs worst in convergence and accuracy  
+- Residual connection improves training stability  
+- Model B achieves best generalization performance  
+
+---
+
+## Repository Link
+
+https://github.com/LeoChenJunan/cnn-residual-comparison
