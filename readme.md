@@ -57,17 +57,29 @@ Model B 在 Model A 基礎上加入兩種正則化策略：
 
 ## 三、訓練設定
 
-所有模型皆使用相同設定：
+為確保比較結果的公平性，本實驗遵循以下設計原則：
 
+- 所有模型使用以下相同資料集進行訓練與驗證  
 - Learning Rate：1e-3  
 - Batch Size：64  
 - Epoch：50  
 - 輸入大小：3 × 32 × 32  
+- 統一訓練超參數（learning rate、batch size、epoch）  
+- 僅改變模型架構（Baseline / Residual / Regularization）  
+- 使用相同 evaluation metric（Accuracy / Loss）進行比較  
 
+因此，本實驗可視為「controlled experiment（控制變因實驗）」，能有效分析不同架構對模型性能的影響。
 ---
 
 ## 四、實驗結果對比（重點分析）
 
+### （0）數值結果總覽
+
+| Model                               | Learning Rate | Epoch | Batch Size | Train Accuracy | Val Accuracy | Train Loss | Val Loss |
+|-------------------------------------|---------------|-------|------------|----------------|--------------|------------|----------|
+| Baseline                            | 0.01          | 50    | 64         | 0.5053         | 0.4375       | 1.2014     | 1.3284   |
+| Model A (Residual CNN)              | 0.001         | 50    | 64         | 0.9821         | 0.8230       | 0.0674     | 0.6010   |
+| Model B (Residual + Regularization) | 0.001         | 50    | 64         | 0.8613         | 0.7680       | 0.3622     | 0.6631   |
 ### （1）整體趨勢比較
 
 從三個模型的訓練結果可以觀察到明顯的性能階層：
